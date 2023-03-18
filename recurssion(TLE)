@@ -1,0 +1,12 @@
+class Solution:
+    def longestPalindromeSubseq(self, s: str) -> int:
+        def solve(self,s,rev,i,j,n):
+            if i==n or j==n:
+                return 0
+            if s[i]==rev[j]:
+                return 1+solve(self,s,rev,i+1,j+1,n)
+            return max(solve(self,s,rev,i,j+1,n),solve(self,s,rev,i+1,j,n))
+            
+        n=len(s)
+        rev=s[::-1]
+        return solve(self,s,rev,0,0,n)
